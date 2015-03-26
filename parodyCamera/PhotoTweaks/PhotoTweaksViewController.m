@@ -255,6 +255,7 @@
     NSLog(@"origin imageViewSize:%f", imageViewSize.width);
     NSLog(@"imageViewSize:%f", -imageViewSize.width/2);
     
+    //MARK: masuhara
     CGContextDrawImage(context, CGRectMake(-imageViewSize.width/2.0,
                                            (-imageViewSize.height/2.0) + 43 - 31,
                                            imageViewSize.width,
