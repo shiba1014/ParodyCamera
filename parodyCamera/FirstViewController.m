@@ -12,7 +12,7 @@
 #import "UIColor+FlatUI.h"
 #import "FUIButton.h"
 
-@interface FirstViewController ()
+@interface FirstViewController () <PhotoTweaksViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet FUIButton *openLibraryButton;
 
@@ -92,6 +92,9 @@
     photoTweaksViewController.delegate = self;
     [picker pushViewController:photoTweaksViewController animated:YES];
 }
+
+#pragma mark - masuhara added
+
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [[picker presentingViewController] dismissViewControllerAnimated:YES completion:nil];

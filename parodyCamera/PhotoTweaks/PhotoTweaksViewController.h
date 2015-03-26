@@ -20,6 +20,7 @@
  */
 @property (nonatomic, strong, readonly) UIImage *image;
 
+
 /**
  Flag indicating whether the image cropped will be saved to photo library automatically. Defaults to YES.
  */
