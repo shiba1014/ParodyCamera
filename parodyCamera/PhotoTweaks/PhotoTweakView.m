@@ -160,6 +160,9 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];  // 取得
+    [ud removeObjectForKey:@"scaleValue"];
+    
     if (self = [super initWithFrame:frame]) {
         self.layer.borderColor = [UIColor cropLineColor].CGColor;
         self.layer.borderWidth = 1;
@@ -577,6 +580,15 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
 {
+    //MARK: masuhara
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];  // 取得
+    [ud removeObjectForKey:@"scaleValue"];
+    [ud setFloat:scale forKey:@"scaleValue"];
+    [ud synchronize];
+    
+    
+    NSLog(@"finished zooming == %f", [ud floatForKey:@"scaleValue"]);
+    
     self.manualZoomed = YES;
 }
 
@@ -592,8 +604,6 @@ typedef NS_ENUM(NSInteger, CropCornerType) {
     CGFloat scaleX = self.originalSize.width / cropView.bounds.size.width;
     CGFloat scaleY = self.originalSize.height / cropView.bounds.size.height;
     CGFloat scale = MIN(scaleX, scaleY);
-    
-    NSLog(@"scale is ... ======== %f", scale);
     
     // calculate the new bounds of crop view
     CGRect newCropBounds = CGRectMake(0, 0, scale * cropView.frame.size.width, scale * cropView.frame.size.height);
