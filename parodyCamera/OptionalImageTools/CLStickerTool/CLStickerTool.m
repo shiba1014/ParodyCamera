@@ -31,8 +31,6 @@ static NSString* const kCLStickerToolDeleteIconName = @"deleteIconAssetsName";
     UIView *_workingView;
     
     UIScrollView *_menuScroll;
-    
-    _CLStickerView *topStickerView;
 }
 
 + (NSArray*)subtools
@@ -94,6 +92,9 @@ static NSString* const kCLStickerToolDeleteIconName = @"deleteIconAssetsName";
                      animations:^{
                          _menuScroll.transform = CGAffineTransformIdentity;
                      }];
+    
+    self.editor.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+    [self.editor.navigationItem.rightBarButtonItem setEnabled:NO];
 }
 
 
@@ -156,44 +157,56 @@ static NSString* const kCLStickerToolDeleteIconName = @"deleteIconAssetsName";
     _menuScroll.contentSize = CGSizeMake(MAX(x, _menuScroll.frame.size.width+1), 0);
 }
 
-- (void)tappedStickerPanel:(UITapGestureRecognizer*)sender
-{
-    
-    UIView *view = sender.view;
+//- (void)tapedStickerPanel:(UITapGestureRecognizer*)sender
+//{
+
+//    UIView *view = sender.view;
     //UIView *topView = [_workingView.subviews objectAtIndex:([_workingView.subviews count] -1) ];
     
-    NSString *filePath = view.userInfo[@"filePath"];
+//    NSString *filePath = view.userInfo[@"filePath"];
     
-    if(!topStickerView){
-        if(filePath){
-            topStickerView = [[_CLStickerView alloc] initWithImage:[UIImage imageWithContentsOfFile:filePath] tool:self];
-            CGFloat ratio = MIN( (0.3 * _workingView.width) / view.width, (0.3 * _workingView.height) / view.height);
-           
+//    if(!topStickerView){
+//        if(filePath){
+//            topStickerView = [[_CLStickerView alloc] initWithImage:[UIImage imageWithContentsOfFile:filePath] tool:self];
+//            CGFloat ratio = MIN( (0.3 * _workingView.width) / view.width, (0.3 * _workingView.height) / view.height);
+//           
             //[topStickerView setScale:ratio];
            // [topStickerView.layer setAnchorPoint:CGPointMake(1.0, 0.0)];
             //[topStickerView.layer setPosition:CGPointMake(_workingView.width, _workingView.height)];
             
             
 //            topStickerView.frame = CGRectMake(_workingView.width * 3/4,topStickerView.height * 4/5,50 , 50 );
-            topStickerView.frame = CGRectMake(0, 0, 0, 0);
+//            topStickerView.frame = CGRectMake(0, 0, 0, 0);
             //view.tag = 99;
             
-            [_workingView addSubview:topStickerView];
+//            [_workingView addSubview:topStickerView];
             //[_workingView bringSubviewToFront:topStickerView];
-            [_CLStickerView setActiveStickerView:topStickerView];
-            UIViewController *test = [_CLImageEditorViewController alloc];
-//            test.stickImageView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"camera-flash-on"]];
-            
-        }
-    }else{
+//            [_CLStickerView setActiveStickerView:topStickerView];
+//        }
+//    }else{
         //_CLStickerView *topView = (_CLStickerView *)[_workingView viewWithTag:99];
-        if(filePath){
+//        if(filePath){
            // topStickerView = [[_CLStickerView alloc] initWithImage:[UIImage imageWithContentsOfFile:filePath] tool:self];
             //[topStickerView setImageView:[[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:filePath]]];
-            [topStickerView.imageView setImage:[UIImage imageWithContentsOfFile:filePath]];
-        }
+//            [topStickerView.imageView setImage:[UIImage imageWithContentsOfFile:filePath]];
+//        }
         
-    }
+//    }
+//    
+//    self.editor.stickImageView.image = [UIImage imageWithContentsOfFile:filePath];
+//    
+//    view.alpha = 0.2;
+//    [UIView animateWithDuration:kCLImageToolAnimationDuration
+//                     animations:^{
+//                         view.alpha = 1;
+//                     }
+//     ];
+//}
+
+- (void)tappedStickerPanel:(UITapGestureRecognizer*)sender{
+    UIView *view = sender.view;
+    NSString *filePath = view.userInfo[@"filePath"];
+    self.editor.stickImageView.image = [UIImage imageWithContentsOfFile:filePath];
     view.alpha = 0.2;
     [UIView animateWithDuration:kCLImageToolAnimationDuration
                      animations:^{

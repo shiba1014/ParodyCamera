@@ -68,7 +68,7 @@
     cancelBtn.frame = CGRectMake(8, 10, 60, 40);
     //cancelBtn.frame = CGRectMake(8, CGRectGetHeight(self.view.frame) - 40, 60, 40);
     cancelBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
-    [cancelBtn setTitle:@"Cancel" forState:UIControlStateNormal];
+    [cancelBtn setTitle:@"戻る" forState:UIControlStateNormal];
     [cancelBtn setTitleColor:[UIColor cancelButtonColor] forState:UIControlStateNormal];
     [cancelBtn setTitleColor:[UIColor cancelButtonHighlightedColor] forState:UIControlStateHighlighted];
     cancelBtn.titleLabel.font = [UIFont systemFontOfSize:17];
@@ -79,7 +79,7 @@
     cropBtn.titleLabel.textAlignment = NSTextAlignmentRight;
     //cropBtn.frame = CGRectMake(CGRectGetWidth(self.view.frame) - 60, CGRectGetHeight(self.view.frame) - 40, 60, 40);
     cropBtn.frame = CGRectMake(CGRectGetWidth(self.view.frame) - 60, 10, 60, 40);
-    [cropBtn setTitle:@"Done" forState:UIControlStateNormal];
+    [cropBtn setTitle:@"進む" forState:UIControlStateNormal];
     [cropBtn setTitleColor:[UIColor saveButtonColor] forState:UIControlStateNormal];
     [cropBtn setTitleColor:[UIColor saveButtonHighlightedColor] forState:UIControlStateHighlighted];
     cropBtn.titleLabel.font = [UIFont systemFontOfSize:17];

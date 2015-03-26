@@ -69,6 +69,7 @@
 		4EB01F5C1ABD2F16000BCD11 /* PhotoTweaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB01F571ABD2F16000BCD11 /* PhotoTweaksViewController.m */; };
 		4EB01F5D1ABD2F16000BCD11 /* PhotoTweakView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB01F591ABD2F16000BCD11 /* PhotoTweakView.m */; };
 		4EB01F5E1ABD2F16000BCD11 /* UIColor+Tweak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB01F5B1ABD2F16000BCD11 /* UIColor+Tweak.m */; };
+		4EDAFED21AC3E80400917389 /* JGActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDAFED11AC3E80400917389 /* JGActionSheet.m */; };
 		4EF1C2B61AC0F930005B415D /* FeHourGlass.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1C2B51AC0F930005B415D /* FeHourGlass.m */; };
 		4EF1C2B91AC0FEED005B415D /* UIColor+flat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1C2B81AC0FEED005B415D /* UIColor+flat.m */; };
 		4EF87A531A8A49EE00334DD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF87A521A8A49EE00334DD8 /* main.m */; };
@@ -224,6 +225,8 @@
 		4EB01F591ABD2F16000BCD11 /* PhotoTweakView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTweakView.m; sourceTree = "<group>"; };
 		4EB01F5A1ABD2F16000BCD11 /* UIColor+Tweak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tweak.h"; sourceTree = "<group>"; };
 		4EB01F5B1ABD2F16000BCD11 /* UIColor+Tweak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tweak.m"; sourceTree = "<group>"; };
+		4EDAFED01AC3E80400917389 /* JGActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGActionSheet.h; sourceTree = "<group>"; };
+		4EDAFED11AC3E80400917389 /* JGActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGActionSheet.m; sourceTree = "<group>"; };
 		4EF1C2B41AC0F930005B415D /* FeHourGlass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeHourGlass.h; sourceTree = "<group>"; };
 		4EF1C2B51AC0F930005B415D /* FeHourGlass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeHourGlass.m; sourceTree = "<group>"; };
 		4EF1C2B71AC0FEED005B415D /* UIColor+flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+flat.h"; sourceTree = "<group>"; };
@@ -556,6 +559,15 @@
 			path = PhotoTweaks;
 			sourceTree = "<group>";
 		};
+		4EDAFECF1AC3E80400917389 /* JGActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				4EDAFED01AC3E80400917389 /* JGActionSheet.h */,
+				4EDAFED11AC3E80400917389 /* JGActionSheet.m */,
+			);
+			path = JGActionSheet;
+			sourceTree = "<group>";
+		};
 		4EF87A441A8A49EE00334DD8 = {
 			isa = PBXGroup;
 			children = (
@@ -569,6 +581,7 @@
 		4EF87A4F1A8A49EE00334DD8 /* parodyCamera */ = {
 			isa = PBXGroup;
 			children = (
+				4EDAFECF1AC3E80400917389 /* JGActionSheet */,
 				AFADCAFD1AC3D52000D10575 /* Defaults */,
 				4E36A09B1AC24BCC005FB201 /* NSString+Icons.h */,
 				4E36A09C1AC24BCC005FB201 /* NSString+Icons.m */,
@@ -805,6 +818,7 @@
 				4E36A0941AC24203005FB201 /* UIFont+FlatUI.m in Sources */,
 				4EF87A591A8A49EE00334DD8 /* CameraViewController.m in Sources */,
 				4EF87A561A8A49EE00334DD8 /* AppDelegate.m in Sources */,
+				4EDAFED21AC3E80400917389 /* JGActionSheet.m in Sources */,
 				4EAD19701ABD756200962EB9 /* CLFilterBase.m in Sources */,
 				4EAD196A1ABD756200962EB9 /* CLHueEffect.m in Sources */,
 				4EAD19651ABD756200962EB9 /* CLClippingTool.m in Sources */,

@@ -83,8 +83,11 @@
     // button to toggle flash
     self.flashButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.flashButton.frame = CGRectMake(0, 0, 16.0f + 20.0f, 24.0f + 20.0f);
+    //MARK: shiba
     [self.flashButton setImage:[UIImage imageNamed:@"camera-flash-off.png"] forState:UIControlStateNormal];
     [self.flashButton setImage:[UIImage imageNamed:@"camera-flash-on.png"] forState:UIControlStateSelected];
+//    [self.flashButton setTitle:@"フラッシュオン" forState:UIControlStateNormal];
+//    [self.flashButton setTitle:@"フラッシュオフ" forState:UIControlStateSelected];
     self.flashButton.imageEdgeInsets = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
     [self.flashButton addTarget:self action:@selector(flashButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.flashButton];
@@ -93,13 +96,15 @@
     self.switchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.switchButton.frame = CGRectMake(0, 0, 29.0f + 20.0f, 22.0f + 20.0f);
     [self.switchButton setImage:[UIImage imageNamed:@"camera-switch.png"] forState:UIControlStateNormal];
+//    [self.switchButton setTitle:@"カメラ切替" forState:UIControlStateNormal];
     self.switchButton.imageEdgeInsets = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
     [self.switchButton addTarget:self action:@selector(switchButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.switchButton];
     
     self.backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.backButton.frame = CGRectMake(5, 3, 50, 50);
-    [self.backButton setImage:[UIImage imageNamed:@"camera-switch.png"] forState:UIControlStateNormal];
+    //[self.backButton setImage:[UIImage imageNamed:@"camera-switch.png"] forState:UIControlStateNormal];
+    [self.backButton setTitle:@"戻る" forState:UIControlStateNormal];
     self.backButton.imageEdgeInsets = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
     [self.backButton addTarget:self action:@selector(backButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.backButton];
