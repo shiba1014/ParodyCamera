@@ -6,20 +6,19 @@
 //
 
 #import "_CLImageEditorViewController.h"
-
 #import "CLImageToolBase.h"
+#import "JGActionSheet.h"
 
 
 #pragma mark- _CLImageEditorViewController
 
 @interface _CLImageEditorViewController()
-<CLImageToolProtocol, UINavigationBarDelegate>
+<CLImageToolProtocol, UINavigationBarDelegate, JGActionSheetDelegate>
 @property (nonatomic, strong) CLImageToolBase *currentTool;
 @property (nonatomic, strong, readwrite) CLImageToolInfo *toolInfo;
 @property (nonatomic, strong) UIImageView *targetImageView;
 @property (nonatomic, strong) UIButton *saveButton;
 @property (nonatomic, strong) UIButton *shareButton;
-@property (nonatomic, strong) UIImageView *stickImageView;
 
 @end
 
@@ -83,18 +82,10 @@
 - (void)initNavigationBar
 {
     UIBarButtonItem *rightBarButtonItem = nil;
-    //UIBarButtonItem *leftBarButtonItem = nil;
-    //NSString *doneBtnTitle = [CLImageEditorTheme localizedString:@"CLImageEditor_DoneBtnTitle" withDefault:nil];
     
-//    if(![doneBtnTitle isEqualToString:@"CLImageEditor_DoneBtnTitle"]){
-//        rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:doneBtnTitle style:UIBarButtonItemStylePlain target:self action:@selector(pushedFinishBtn:)];
-//        //rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camera-flash-off.png"] style:UIBarButtonItemStyleDone target:self action:@selector(pushedFinishBtn:)];
-//    }
-   // else{
-        rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(pushedFinishBtn:)];
-    //leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camera-flash-off.png"] style:UIBarButtonItemStylePlain target:self action:@selector(pushedCancelBtn:)];
-    //  }
-    
+//        rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(pushedFinishBtn:)];
+    rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"最初に戻る" style:UIBarButtonItemStylePlain target:self action:@selector(pushedFinishBtn:)];
+
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     //self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     [self.navigationController setNavigationBarHidden:NO animated:NO];
@@ -102,7 +93,8 @@
     if(_navigationBar==nil){
         UINavigationItem *navigationItem  = [[UINavigationItem alloc] init];
         //navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(pushedCloseBtn:)];
-        navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camera-flash-off.png"] style:UIBarButtonItemStylePlain target:self action:@selector(pushedCloseBtn:)];
+//        navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camera-flash-off.png"] style:UIBarButtonItemStylePlain target:self action:@selector(pushedCloseBtn:)];
+        navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"戻る" style:UIBarButtonItemStylePlain target:self action:@selector(pushedCloseBtn:)];
         navigationItem.rightBarButtonItem = rightBarButtonItem;
         
         CGFloat dy = ([UIDevice iosVersion]<7) ? 0 : MIN([UIApplication sharedApplication].statusBarFrame.size.height, [UIApplication sharedApplication].statusBarFrame.size.width);
@@ -228,16 +220,20 @@
     //[[UIButton alloc] ]
     self.saveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.saveButton.frame = CGRectMake(150, -8, 70, 80);
-    [self.saveButton setImage:[UIImage imageNamed:@"camera-flash-on"] forState:UIControlStateNormal];
-    UITapGestureRecognizer *saveGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(saveImage:)];
-    [self.saveButton addGestureRecognizer:saveGesture];
+    //[self.saveButton setImage:[UIImage imageNamed:@"camera-flash-on"] forState:UIControlStateNormal];
+    [self.saveButton setTitle:@"保存" forState:UIControlStateNormal];
+//    UITapGestureRecognizer *saveGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(saveImage:)];
+//    [self.saveButton addGestureRecognizer:saveGesture];
+    [self.saveButton addTarget:self action:@selector(saveImage:) forControlEvents:UIControlEventTouchUpInside];
     [self.menuView addSubview:self.saveButton];
     
     self.shareButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.shareButton.frame = CGRectMake(200, -8, 70, 80);
-    [self.shareButton setImage:[UIImage imageNamed:@"camera-switch"] forState:UIControlStateNormal];
-    UITapGestureRecognizer *shareGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(share:)];
-    [self.saveButton addGestureRecognizer:shareGesture];
+    //[self.shareButton setImage:[UIImage imageNamed:@"camera-switch"] forState:UIControlStateNormal];
+    [self.shareButton setTitle:@"共有" forState:UIControlStateNormal];
+//    UITapGestureRecognizer *shareGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(share:)];
+//    [self.saveButton addGestureRecognizer:shareGesture];
+    [self.shareButton addTarget:self action:@selector(share:) forControlEvents:UIControlEventTouchUpInside];
     [self.menuView addSubview:self.shareButton];
     
 //    UIImageView *testImageVIew = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"camera-flash-on"]];
@@ -245,7 +241,7 @@
     
     self.stickImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"camera-flash-on"]];
     [self.stickImageView setContentMode:UIViewContentModeScaleAspectFit];
-    self.stickImageView.frame = CGRectMake(0, 0, 70, 70);
+    self.stickImageView.frame = CGRectMake(self.imageView.bounds.size.width - 75, self.imageView.bounds.size.height - 75, 70, 70);
     //self.stickImage.center = CGPointMake(_imageView.frame.size.width / 2, _imageView.frame.size.height / 3);
     [self.imageView addSubview:self.stickImageView];
     
@@ -617,8 +613,11 @@
     [self swapNavigationBarWithEditting:editting];
     
     if(self.currentTool){
+        
         UINavigationItem *item  = [[UINavigationItem alloc] initWithTitle:self.currentTool.toolInfo.title];
-        item.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[CLImageEditorTheme localizedString:@"CLImageEditor_OKBtnTitle" withDefault:@"OK"] style:UIBarButtonItemStyleDone target:self action:@selector(pushedDoneBtn:)];
+        if(![self.currentTool.toolInfo.title  isEqual: @"Sticker"]){
+            item.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[CLImageEditorTheme localizedString:@"CLImageEditor_OKBtnTitle" withDefault:@"OK"] style:UIBarButtonItemStyleDone target:self action:@selector(pushedDoneBtn:)];
+        }
         item.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithTitle:[CLImageEditorTheme localizedString:@"CLImageEditor_BackBtnTitle" withDefault:@"Back"] style:UIBarButtonItemStylePlain target:self action:@selector(pushedCancelBtn:)];
         
         [_navigationBar pushNavigationItem:item animated:(self.navigationController==nil)];
@@ -739,6 +738,7 @@
 }
 
 -(void)saveImage:(id)sender{
+    NSLog(@"save!");
     //画像保存完了時のセレクタ指定
     SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
     //画像を保存する
@@ -746,7 +746,14 @@
 }
 
 -(void)share:(id)sender{
+    NSLog(@"share!");
+    JGActionSheetSection *section = [JGActionSheetSection sectionWithTitle:@"共有" message:nil buttonTitles:@[@"twitter", @"facebook", @"LINE"] buttonStyle:JGActionSheetButtonStyleDefault];
     
+    JGActionSheet *sheet = [JGActionSheet actionSheetWithSections:@[section,[JGActionSheetSection sectionWithTitle:nil message:nil buttonTitles:@[@"Cancel"] buttonStyle:JGActionSheetButtonStyleCancel]]];
+    
+    sheet.delegate = self;
+    
+    sheet.insets = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0);
 }
 
 //画像保存完了時のセレクタ
