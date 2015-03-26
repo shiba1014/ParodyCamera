@@ -84,6 +84,9 @@
 		4EF87A841A8A4B4500334DD8 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF87A801A8A4B4500334DD8 /* UIImage+Resize.m */; };
 		4EF87A851A8A4B4500334DD8 /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF87A821A8A4B4500334DD8 /* ViewUtils.m */; };
 		4EF87A8B1A8A4E9900334DD8 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF87A8A1A8A4E9900334DD8 /* ImageViewController.m */; };
+		AFADCB031AC3D52000D10575 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFADCAFE1AC3D52000D10575 /* Default-568h@2x.png */; };
+		AFADCB041AC3D52000D10575 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFADCAFF1AC3D52000D10575 /* Default-667h@2x.png */; };
+		AFADCB051AC3D52000D10575 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFADCB001AC3D52000D10575 /* Default-736h@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -248,6 +251,11 @@
 		4EF87A821A8A4B4500334DD8 /* ViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewUtils.m; sourceTree = "<group>"; };
 		4EF87A891A8A4E9900334DD8 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		4EF87A8A1A8A4E9900334DD8 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		AFADCAFE1AC3D52000D10575 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		AFADCAFF1AC3D52000D10575 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
+		AFADCB001AC3D52000D10575 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
+		AFADCB011AC3D52000D10575 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		AFADCB021AC3D52000D10575 /* MobileSimulator-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MobileSimulator-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,6 +571,7 @@
 		4EF87A4F1A8A49EE00334DD8 /* parodyCamera */ = {
 			isa = PBXGroup;
 			children = (
+				AFADCAFD1AC3D52000D10575 /* Defaults */,
 				4E36A09B1AC24BCC005FB201 /* NSString+Icons.h */,
 				4E36A09C1AC24BCC005FB201 /* NSString+Icons.m */,
 				4E36A0961AC245D6005FB201 /* UIImage+FlatUI.h */,
@@ -658,6 +667,18 @@
 			name = Utillity;
 			sourceTree = "<group>";
 		};
+		AFADCAFD1AC3D52000D10575 /* Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				AFADCAFE1AC3D52000D10575 /* Default-568h@2x.png */,
+				AFADCAFF1AC3D52000D10575 /* Default-667h@2x.png */,
+				AFADCB001AC3D52000D10575 /* Default-736h@3x.png */,
+				AFADCB011AC3D52000D10575 /* Header.h */,
+				AFADCB021AC3D52000D10575 /* MobileSimulator-Bridging-Header.h */,
+			);
+			path = Defaults;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -741,8 +762,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E7D04AE1A8F732F00C4D397 /* camera-flash-off.png in Resources */,
+				AFADCB041AC3D52000D10575 /* Default-667h@2x.png in Resources */,
+				AFADCB031AC3D52000D10575 /* Default-568h@2x.png in Resources */,
 				4E7D04B11A8F732F00C4D397 /* camera-flash-on@2x.png in Resources */,
 				4E7D04B01A8F732F00C4D397 /* camera-flash-on.png in Resources */,
+				AFADCB051AC3D52000D10575 /* Default-736h@3x.png in Resources */,
 				4E7D04AF1A8F732F00C4D397 /* camera-flash-off@2x.png in Resources */,
 				4E7D04B21A8F732F00C4D397 /* camera-switch.png in Resources */,
 				4EF87A5C1A8A49EE00334DD8 /* Main.storyboard in Resources */,
