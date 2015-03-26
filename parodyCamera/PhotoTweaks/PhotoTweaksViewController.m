@@ -24,6 +24,7 @@
     FeHourGlass *loadingView;
 }
 
+
 - (instancetype)initWithImage:(UIImage *)image
 {
     if (self = [super init]) {
@@ -49,6 +50,10 @@
     self.view.backgroundColor = [UIColor photoTweakCanvasBackgroundColor];
     
     [self setupSubviews];
+    
+    if( [ UIApplication sharedApplication ].isStatusBarHidden == NO ) {
+        [ UIApplication sharedApplication ].statusBarHidden = YES;
+    }
 }
 
 - (void)setupSubviews
@@ -255,9 +260,15 @@
     NSLog(@"origin imageViewSize:%f", imageViewSize.width);
     NSLog(@"imageViewSize:%f", -imageViewSize.width/2);
     
+    NSLog(@"self.scale == %f", [[NSUserDefaults standardUserDefaults] floatForKey:@"scaleValue"]);
+    
+    float scaleValue = (10 * ([[NSUserDefaults standardUserDefaults] floatForKey:@"scaleValue"]-1));
+    
+    NSLog(@"==== %f =====", scaleValue);
+    
     //MARK: masuhara
     CGContextDrawImage(context, CGRectMake(-imageViewSize.width/2.0,
-                                           (-imageViewSize.height/2.0) + 43 - 31,
+                                           (-imageViewSize.height/2.0 + 34 - scaleValue),
                                            imageViewSize.width,
                                            imageViewSize.height)
 

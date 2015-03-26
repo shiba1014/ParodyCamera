@@ -254,8 +254,6 @@
 		AFADCAFE1AC3D52000D10575 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AFADCAFF1AC3D52000D10575 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		AFADCB001AC3D52000D10575 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
-		AFADCB011AC3D52000D10575 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
-		AFADCB021AC3D52000D10575 /* MobileSimulator-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MobileSimulator-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -673,8 +671,6 @@
 				AFADCAFE1AC3D52000D10575 /* Default-568h@2x.png */,
 				AFADCAFF1AC3D52000D10575 /* Default-667h@2x.png */,
 				AFADCB001AC3D52000D10575 /* Default-736h@3x.png */,
-				AFADCB011AC3D52000D10575 /* Header.h */,
-				AFADCB021AC3D52000D10575 /* MobileSimulator-Bridging-Header.h */,
 			);
 			path = Defaults;
 			sourceTree = "<group>";
@@ -728,11 +724,11 @@
 				TargetAttributes = {
 					4EF87A4C1A8A49EE00334DD8 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = U6JP7S27NV;
+						DevelopmentTeam = XFUA4YPVDB;
 					};
 					4EF87A651A8A49EE00334DD8 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = U6JP7S27NV;
+						DevelopmentTeam = XFUA4YPVDB;
 						TestTargetID = 4EF87A4C1A8A49EE00334DD8;
 					};
 				};
@@ -986,7 +982,7 @@
 				INFOPLIST_FILE = parodyCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d81bf29f-da66-4307-babe-be6712e95f2f";
 			};
 			name = Debug;
 		};
@@ -999,7 +995,7 @@
 				INFOPLIST_FILE = parodyCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d81bf29f-da66-4307-babe-be6712e95f2f";
 			};
 			name = Release;
 		};

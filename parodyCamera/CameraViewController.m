@@ -136,14 +136,9 @@
     
     [self.view addGestureRecognizer:swipeDownGesture];
     
-    //self.parodyImage = [[UIImageView alloc] initWithImage:_parodyIcon];
-    //[self.view bringSubviewToFront:self.parodyImage];
-    //_parodyImage.userInteractionEnabled = YES;
-    
-//    self.alphaSlider = [[UISlider alloc] initWithFrame:CGRectMake(10,530,300,10)];
-//    [self.alphaSlider addTarget:self action:@selector(hoge:) forControlEvents:UIControlEventValueChanged];
-//    [self.view addSubview:self.alphaSlider];
-    
+    if( [ UIApplication sharedApplication ].isStatusBarHidden == NO ) {
+        [ UIApplication sharedApplication ].statusBarHidden = YES;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
